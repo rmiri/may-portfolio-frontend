@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-
+import API from '../API.js'
 
 class Login extends Component {
     state = { 
         email: '',
-        password: '',
-        token: ''
+        password: ''
      }
 
      handleChange = (e) => {
@@ -16,22 +15,12 @@ class Login extends Component {
     
     handleSubmit = (e) => {
         e.preventDefault() 
-		const configObject = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify(this.state) 
-        }
-        return fetch('http://localhost:3000/login',configObject)
-        .then(resp => resp.json())
+        API.login(this.state)
         .then(console.log)
       }
 
 
     render() { 
-        console.log(this.state)
         return ( 
             <div>
             <h1>Login</h1>
