@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
-import API from '../API.js'
+import { connect } from 'react-redux';
+import API from '../API.js';
+import { Route, Redirect } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 class Login extends Component {
     state = { 
         email: '',
-        password: ''
+        password: '',
+        user: null
      }
 
      handleChange = (e) => {
@@ -14,10 +18,19 @@ class Login extends Component {
     };
     
     handleSubmit = (e) => {
-        e.preventDefault() 
+        e.preventDefault();
         API.login(this.state)
-        .then(console.log)
+        .then(resp => this.setUser(resp.user,resp.jwt))
+        
       }
+
+    setUser = (user,token) => {
+        if (user){
+            this.props.setUserState(user)
+            localStorage.token = token;
+        }
+        console.log("i'm here")
+    }
 
 
     render() { 
@@ -29,11 +42,17 @@ class Login extends Component {
                 <input type="text" name="email" onChange={this.handleChange}/> <br />
                 <label>Password</label>
                 <input type="password" name="password" onChange={this.handleChange}/> <br />
-                <button type="submit" value="Sign In" class="button">Login</button>
+                <button type="submit" value="Sign In" class="button" >Login</button>
             </form>
             </div>
          );
     }
 }
+
+const mapDispatchedProps = dispatch => {
+    return {
+        setUserState: user => dispatch({type: "SET_USER", payload: {user}})
+    }
+}
  
-export default Login;
+export default connect(null,mapDispatchedProps)(Login);

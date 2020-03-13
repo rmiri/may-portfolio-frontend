@@ -1,14 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Login from './components/Login';
+import Page from './Page'
+import { BrowserRouter as Router} from 'react-router-dom';
 
 function App() {
+  
   return (
-    <div className="App">
-      <Login />
-    </div>
+    <Router> 
+      <Page />
+    </Router>
   );
 }
+
+
 
 export default App;

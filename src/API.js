@@ -1,10 +1,16 @@
 const baseUrl = 'http://localhost:3000';
 const loginUrl = baseUrl + '/login';
+const pagesUrl = baseUrl + '/pages';
+const projectsUrl = baseUrl + '/projects';
+const validateURL = baseUrl + '/validate';
 
-const getToken = (url,token) => (
-    fetch(url,{ headers: {'Authorization':token}})
-        .then(resp => resp.json())
-)
+
+
+
+const validate = (token) => {
+    return fetch(validateURL,{ headers: {'Authorization':token}})
+             .then(resp => resp.json())
+}
 
 const get = (url) => (
     fetch(url)
@@ -28,4 +34,15 @@ const login = (body) => (
     post(loginUrl,body)
 )
 
-export default {login}
+const getPage = () => (
+    get(pagesUrl)
+)
+const getProjects = () => (
+    get(projectsUrl)
+)
+
+const getProject = (id) => (
+    get(projectsUrl+"/"+id)
+)
+
+export default {login,getPage,getProjects,getProject,validate}

@@ -1,0 +1,40 @@
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import API from '../API';
+import Header from './Header'
+
+class Project extends Component {
+
+    getProject = () => {
+        API.getProject(this.props.match.params.id)
+        .then(project => this.props.setProject(project))
+    }
+
+    componentDidMount() {
+        this.getProject()
+    }
+    render(){
+        const {project} = this.props
+        return(
+            <div>
+                <Header />
+                <h3>{project.title}</h3>
+            </div>
+        )
+    }
+}
+
+const mapStateToProps = state => {
+    return {
+        project: state.project,
+      }
+    
+  }
+
+const mapDispatchToProps = dispatch => {
+    return {
+        setProject: project => dispatch({type: "SET_PROJECT", payload: {project}} ),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Project);
