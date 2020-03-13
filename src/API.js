@@ -3,6 +3,7 @@ const loginUrl = baseUrl + '/login';
 const pagesUrl = baseUrl + '/pages';
 const projectsUrl = baseUrl + '/projects';
 const validateURL = baseUrl + '/validate';
+const createURL = baseUrl + '/create';
 
 
 
@@ -45,4 +46,9 @@ const getProject = (id) => (
     get(projectsUrl+"/"+id)
 )
 
-export default {login,getPage,getProjects,getProject,validate}
+const postProject = (body) => (
+    post(createURL,body)
+)
+
+
+export default {login,getPage,getProjects,getProject,validate,postProject}

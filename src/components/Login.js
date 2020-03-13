@@ -29,7 +29,6 @@ class Login extends Component {
             this.props.setUserState(user)
             localStorage.token = token;
         }
-        console.log("i'm here")
     }
 
 
