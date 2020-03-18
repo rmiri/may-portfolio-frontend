@@ -8,7 +8,8 @@ class NewProject extends Component {
         index_description: '',
         description: '',
         category: null,
-        user_id: this.props.user.id
+        user_id: this.props.user.id,
+        pictures: []
     }
     handleChange = (e) => {
 		this.setState({
@@ -18,9 +19,21 @@ class NewProject extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        API.postProject(this.state)
-        .then(resp => console.log(resp))
-        
+        const form = new FormData(e.target)
+        form.append('title', this.state.title)
+        form.append('index_description', this.state.index_description)
+        form.append('description', this.state.description)
+        form.append('category', this.state.category)
+        form.append('user_id', this.state.user_id)
+        // form.append('pictures', this.state.pictures)
+        API.postProject(form)
+        .then(resp => window.alert(resp.message))
+      }
+
+      filehandled = event => {
+          this.setState({
+            pictures: event.target.files
+          })
       }
 
     render() {
@@ -38,13 +51,17 @@ class NewProject extends Component {
                 <input type="text" name="description" onChange={this.handleChange}/>
 
                 <label>Category</label>
-                <select name="category" onChange={this.handleChange}>
-                    <option value="" disabled selected hidden>Select One</option>
-                    <option value="Graphic">Graphic</option>
-                    <option value="Ui">Ui</option>
-                    <option value="Logo">Logo</option>
+                <select name="category" onChange={this.handleChange} defaultValue="selectOne">
+                    <option disabled value="selectOne" hidden>Select One</option>
+                    <option value={this.props.page[0].filter_1}>{this.props.page[0].filter_1}</option>
+                    <option value={this.props.page[0].filter_2}>{this.props.page[0].filter_2}</option>
+                    <option value={this.props.page[0].filter_3}>{this.props.page[0].filter_3}</option>
                 </select>
-                  <button type="submit" value="Submit">Submit</button>
+
+                <label>Photos</label>
+                <input multiple={false} type="file" name="pictures" onChange={this.filehandled}/>
+
+                <button type="submit" value="Submit">Submit</button>
               </form>
           </div>
          );

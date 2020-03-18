@@ -24,6 +24,10 @@ class Page extends Component {
         API.getPage()
         .then(page => this.props.setPage(page))
      }
+     getAboutMe = () => {
+        API.getAboutMe()
+        .then(page => this.props.setAboutMe(page))
+     }
      getProjects = () => {
         API.getProjects()
         .then(projects => this.props.setProjects(projects))
@@ -45,6 +49,7 @@ class Page extends Component {
 		}
          this.getPage()
          this.getProjects()
+         this.getAboutMe()
      }
 
 
@@ -91,7 +96,8 @@ const mapDispatchToProps = dispatch => {
     return {
         setPage: page => dispatch({type: "SET_PAGE", payload: {page}} ),
         setProjects: projects => dispatch({type: "SET_PROJECTS", payload: {projects}} ),
-        setUser: user => dispatch({type: "SET_USER", payload: {user}})
+        setUser: user => dispatch({type: "SET_USER", payload: {user}}),
+        setAboutMe: about => dispatch({type: "SET_ABOUTME", payload: {about}}),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Page)

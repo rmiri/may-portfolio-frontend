@@ -20,7 +20,7 @@ class Login extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         API.login(this.state)
-        .then(resp => this.setUser(resp.user,resp.jwt))
+        .then(resp => resp.message ? window.alert(resp.message) : this.setUser(resp.user,resp.jwt))
         
       }
 
@@ -41,7 +41,7 @@ class Login extends Component {
                 <input type="text" name="email" onChange={this.handleChange}/> <br />
                 <label>Password</label>
                 <input type="password" name="password" onChange={this.handleChange}/> <br />
-                <button type="submit" value="Sign In" class="button" >Login</button>
+                <button type="submit" value="Sign In" className="button" >Login</button>
             </form>
             </div>
          );

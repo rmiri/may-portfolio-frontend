@@ -1,7 +1,17 @@
 const initialState = {
-    page: [],
+    page: [{
+        website_name:"fuck this",
+        nav_link_1:"fuck this too",
+        nav_link_2:"fuck this 3"
+    }],
+    aboutme: [{
+        name: "name"
+    }],
     projects: [],
-    project: {title:"title"},
+    project: {
+        project:{
+            title: "title"},
+        pictures:"#"},
     user: null
 }
 
@@ -28,6 +38,11 @@ const reducer = (state = initialState,action) => {
                     ...state,
                     project: action.payload.project
                 }
+        case "SET_ABOUTME":
+            return {
+                ...state,
+                aboutme: action.payload.about
+            }
         default:
         return state 
     }

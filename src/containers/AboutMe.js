@@ -1,15 +1,26 @@
 import React, { Component } from 'react';
 import Header from '../components/Header'
+import { connect } from 'react-redux';
+
+
 class AboutMe extends Component {
-    state = {  }
+
+
     render() { 
         return (
             <div>
                 <Header />
-                <h1>It is me, Mario</h1>
+            <h1>{this.props.aboutme.name}</h1>
             </div>
           );
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        aboutme: state.aboutme[0],
+    }
+}
+
  
-export default AboutMe;
+export default connect(mapStateToProps)(AboutMe);
