@@ -32,11 +32,12 @@ class NewProject extends Component {
 
       filehandled = event => {
           this.setState({
-            pictures: event.target.files
+            pictures: [...this.state.pictures,event.target.files]
           })
       }
 
     render() {
+      console.log(this.state.pictures)
         return ( 
           <div>
               <h1>Add new Project</h1>
@@ -59,7 +60,7 @@ class NewProject extends Component {
                 </select>
 
                 <label>Photos</label>
-                <input multiple={false} type="file" name="pictures" onChange={this.filehandled}/>
+                <input multiple={true} type="file" name="pictures" onChange={this.filehandled}/>
 
                 <button type="submit" value="Submit">Submit</button>
               </form>

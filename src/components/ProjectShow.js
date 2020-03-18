@@ -13,14 +13,15 @@ class Project extends Component {
     componentDidMount() {
         this.getProject()
     }
+
+
     render(){
         const {project,pictures} = this.props.project
-        console.log(this.props.project)
         return(
             <div>
                 <Header />
                 <h3>{project ? project.title : "nothing"}</h3>
-                <img src={pictures} />
+                {pictures.map(image => console.log(image))}
             </div>
         )
     }
