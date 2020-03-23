@@ -36,6 +36,7 @@ class Page extends Component {
      getProjects = () => {
         API.getProjects()
         .then(projects => this.props.setProjects(projects))
+        
      }
 
      logOut = () => {
@@ -91,8 +92,8 @@ class Page extends Component {
  
 const mapStateToProps = state => {
     return {
-        aboutMe: state.page[0]? state.page[0].nav_link_1.split(" ").join("").toLowerCase() : "aboutme",
-        projects: state.page[0]? state.page[0].nav_link_2.split(" ").join("").toLowerCase() : "projects",
+        aboutMe: state.page? state.page[0].nav_link_1.split(" ").join("").toLowerCase() : "aboutme",
+        projects: state.page? state.page[0].nav_link_2.split(" ").join("").toLowerCase() : "projects",
         user: state.user
       }
     

@@ -10,7 +10,8 @@ import Header from '../components/Header';
 class Projects extends Component {
 
     renderEachProject = () => {
-        return this.props.projects.map(project =>  <Project project={project} key={project.id} nav2={this.props.page[0].nav_link_2}/>)
+
+        return this.props.projects.map(project =>  <Project project={project.project} key={project.id} nav2={this.props.page[0].nav_link_2} picture={project.pictures}/>)
     }
 
     render() { 
@@ -32,7 +33,6 @@ const mapStateToProps = state => {
         projects: state.projects
     }
 }
-
 
  
 export default connect(mapStateToProps)(Projects);

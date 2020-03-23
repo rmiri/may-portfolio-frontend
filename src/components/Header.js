@@ -19,7 +19,7 @@ class Header extends Component {
     }
    
   render() {
-    const {nav_link_1, nav_link_2, logo, footer_link_1,footer_link_2,footer_link_3} = this.props.page[0] ? this.props.page[0] : []
+    const {nav_link_1, nav_link_2, logo, footer_link_1,footer_link_2,footer_link_3} = this.props.page ? this.props.page[0] : []
 
     return(
         <Styles>

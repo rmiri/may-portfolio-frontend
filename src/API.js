@@ -15,7 +15,7 @@ const validate = (token) => {
 
 const get = (url) => (
     fetch(url)
-    .then(resp => resp.json())
+  .then(resp => resp.json())
 )
 
 const post = (url,obj) => {
