@@ -22,6 +22,10 @@ class AboutMeAdmin extends Component {
         .then(console.log)
     }
 
+//     about_me(pin):null
+// phone(pin):null
+// email(pin):null
+
     render() { 
         return ( 
           <div>
@@ -29,6 +33,7 @@ class AboutMeAdmin extends Component {
               <form>
                 <label>Name</label>
                 <input type="text" name="name" value={this.state.name} onChange={this.handleChange} />
+
                 <button type="submit" value="Submit">Submit</button>
               </form>
           </div>

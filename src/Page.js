@@ -17,6 +17,11 @@ import NewProject from './containers/admin/NewProject'
 import ProjectsAdmin from './containers/admin/ProjectsAdmin'
 import AboutMeAdmin from './containers/admin/AboutMeAdmin'
 import PageAdmin from './containers/admin/PageAdmin'
+import styled from 'styled-components'
+
+const Styles = styled.div`
+  
+`
 
 class Page extends Component {
 
@@ -71,14 +76,15 @@ class Page extends Component {
         const {aboutMe,projects} = this.props ? this.props : [];
 
         return ( 
-            <div>
-    
-             {this.renderAdmin()}
-            <Route exact path="/" component={() =>  <Welcome /> }/>
-            <Route exact path={`/${aboutMe}`} component={() =>  <AboutMe /> }/>
-            <Route exact path={`/${projects}`} component={() =>  <Projects /> }/>
-            <Route exact path={`/${projects}/:id`} component={props => (  <ProjectShow {...props} /> )}/>
-            </div>
+            <Styles>
+                <div>
+                {this.renderAdmin()}
+                <Route exact path="/" component={() =>  <Welcome /> }/>
+                <Route exact path={`/${aboutMe}`} component={() =>  <AboutMe /> }/>
+                <Route exact path={`/${projects}`} component={() =>  <Projects /> }/>
+                <Route exact path={`/${projects}/:id`} component={props => (  <ProjectShow {...props} /> )}/>
+                </div>
+            </Styles>
          );
     }
 }

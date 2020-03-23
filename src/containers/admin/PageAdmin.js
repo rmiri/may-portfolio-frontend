@@ -57,9 +57,9 @@ class PageAdmin extends Component {
                 <input type="text" name="filter_2" value={this.state.filter_2} onChange={this.handleChange}></input>
                 <input type="text" name="filter_3" value={this.state.filter_3} onChange={this.handleChange}></input>
                 <label>Footer link:</label>
-                <input type="text" name="footer_link_1" value={this.state.footer_link_1} onChange={this.handleChange}></input>
-                <input type="text" name="footer_link_2" value={this.state.footer_link_2} onChange={this.handleChange}></input>
-                <input type="text" name="footer_link_3" value={this.state.footer_link_3} onChange={this.handleChange}></input>
+                <input type="text" name="footer_link_1" value={this.state.footer_link_1} onChange={this.handleChange}placeholder="Email"></input>
+                <input type="text" name="footer_link_2" value={this.state.footer_link_2} onChange={this.handleChange} placeholder="Linkedin"></input>
+                <input type="text" name="footer_link_3" value={this.state.footer_link_3} onChange={this.handleChange} placeholder="Dribble"></input>
              
                 <button type="submit" value="Submit">Submit</button>
               </form>

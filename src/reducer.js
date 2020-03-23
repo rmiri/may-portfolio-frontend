@@ -1,8 +1,8 @@
 const initialState = {
     page: [{
-        website_name:"fuck this",
-        nav_link_1:"fuck this too",
-        nav_link_2:"fuck this 3"
+        website_name:"loading...",
+        nav_link_1:"loading...",
+        nav_link_2:"loading..."
     }],
     aboutme: [{
         name: "name"

@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+npm-check - to check if the npm are being used and if it's the updated one.
 
 ## Available Scripts
 
