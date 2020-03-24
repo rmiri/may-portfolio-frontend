@@ -6,8 +6,10 @@ class ProjectsAdmin extends Component {
     renderEachProject = () => {
         return this.props.projects.map(proj => 
             <div className="projAdminDiv">
-                <img src={proj.pictures}/>
-                <p>{proj.project.title}</p>
+                <div className="picTileProj">
+                    <img src={proj.pictures}/>
+                    <p>{proj.project.title}</p>
+                </div>
                 <a onClick={()=> this.deleteProject(proj.project.id)}>Delete</a>
             </div>)
     }
@@ -20,7 +22,7 @@ class ProjectsAdmin extends Component {
         
         return ( 
           <div className="adminPage">
-              <h1>Show Projects</h1>
+              <h2 className="h2Title">Show Projects</h2>
               {this.renderEachProject()}
           </div>
          );
