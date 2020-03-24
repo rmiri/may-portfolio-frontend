@@ -4,6 +4,7 @@ import API from '../API.js';
 import { Route, Redirect } from 'react-router-dom';
 import { Link } from "react-router-dom";
 
+
 class Login extends Component {
     state = { 
         email: '',
@@ -34,14 +35,12 @@ class Login extends Component {
 
     render() { 
         return ( 
-            <div>
-            <h1>Login</h1>
-            <form onSubmit={this.handleSubmit}>
-                <label>Email:</label>
-                <input type="text" name="email" onChange={this.handleChange}/> <br />
-                <label>Password</label>
-                <input type="password" name="password" onChange={this.handleChange}/> <br />
-                <button type="submit" value="Sign In" className="button" >Login</button>
+            <div className="loginDiv">
+            <h1>LOGIN</h1>
+            <form onSubmit={this.handleSubmit} class="loginForm">
+                <input type="text" name="email" onChange={this.handleChange} placeholder="Email"/> <br />
+                <input type="password" name="password" onChange={this.handleChange} placeholder="Password"/> <br />
+                <button type="submit" value="Sign In" className="button" ><span>CONFIRM</span></button>
             </form>
             </div>
          );

@@ -10,7 +10,8 @@ class NewProject extends Component {
         description: '',
         category: null,
         user_id: this.props.user.id,
-        pictures: []
+        pictures: [],
+        photos: []
     }
     handleChange = (e) => {
 		this.setState({
@@ -26,9 +27,11 @@ class NewProject extends Component {
         form.append('description', this.state.description)
         form.append('category', this.state.category)
         form.append('user_id', this.state.user_id)
-        // form.append('pictures', this.state.pictures)
+        form.append('pictures', this.state.pictures)
+        form.append('photos[]', this.state.photos);
+      console.log(form.photos)
         API.postProject(form)
-        .then(resp => window.alert(resp.message))
+        // .then(resp => window.alert(resp.message))
       }
 
       filehandled = event => {
@@ -39,19 +42,20 @@ class NewProject extends Component {
 
     render() {
         return ( 
-          <div>
-              <h1>Add new Project</h1>
-              <form onSubmit={this.handleSubmit}>
-                <label>Title</label>
-                <input type="text" name="title" onChange={this.handleChange}/>
+          <div className="adminPage newProject">
+              <h2>NEW PROJECT</h2>
+              <form onSubmit={this.handleSubmit} className="newProjForm">
+                
+                <label><h3>Title</h3></label>
+                <input className="newProjFormInput" type="text" name="title" onChange={this.handleChange}/>
 
-                <label>Index Description</label>
-                <input type="text" name="index_description" onChange={this.handleChange}/>
+                <label><h3>Specifications</h3></label>
+                <input className="newProjFormInput" type="text" name="index_description" onChange={this.handleChange}/>
 
-                <label>Description</label>
-                <input type="text" name="description" onChange={this.handleChange}/>
+                <label><h3>Description</h3></label>
+                <textarea className="newProjFormDesc" type="text" name="description" onChange={this.handleChange}/>
 
-                <label>Category</label>
+                <label><h3>Category</h3></label>
                 <select name="category" onChange={this.handleChange} defaultValue="selectOne">
                     <option disabled value="selectOne" hidden>Select One</option>
                     <option value={this.props.page[0].filter_1}>{this.props.page[0].filter_1}</option>
@@ -59,10 +63,15 @@ class NewProject extends Component {
                     <option value={this.props.page[0].filter_3}>{this.props.page[0].filter_3}</option>
                 </select>
 
-                <label>Photos</label>
-                <input multiple={false} type="file" name="pictures" onChange={this.filehandled}/>
-
-                <button type="submit" value="Submit">Submit</button>
+                <span className="floatLeft">  
+                  <input className="hidden" id="photo" multiple={false} type="file" onChange={this.filehandled}/>
+                  <label for="photo" className="newProjInput"></label>
+                
+                  {/* <label>Photos</label>
+                  <input multiple={true} type="file" name="photos" onChange={this.filehandled}/> */}
+                </span><span className="floatLeft">
+                  <button type="submit" value="Submit" className="button formButton">Submit</button>
+                  </span>
               </form>
           </div>
          );

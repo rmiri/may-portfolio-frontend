@@ -5,9 +5,10 @@ import API from '../../API'
 class ProjectsAdmin extends Component {
     renderEachProject = () => {
         return this.props.projects.map(proj => 
-            <div>
-                <h1>{proj.title}</h1>
-                <button onClick={()=> this.deleteProject (proj.id)}>Delete</button>
+            <div className="projAdminDiv">
+                <img src={proj.pictures}/>
+                <p>{proj.project.title}</p>
+                <a onClick={()=> this.deleteProject(proj.project.id)}>Delete</a>
             </div>)
     }
 
@@ -18,7 +19,7 @@ class ProjectsAdmin extends Component {
     render() { 
         
         return ( 
-          <div>
+          <div className="adminPage">
               <h1>Show Projects</h1>
               {this.renderEachProject()}
           </div>

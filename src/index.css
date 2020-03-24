@@ -1,27 +1,79 @@
 body {
-  margin-left: 7vw;
+  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
+  background: fixed url('images/background.png'); 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 
-.mainPage {
-  background-image: '../public/images/background.png';
-  /* background-color: red; */
 }
 
 .container {
   margin-left: 8vw;
-  background-color: red;
+  /* background-color: red;
   display: grid;
   grid-template-columns: 30% 30% 30%;
-  grid-template-rows: auto auto auto;
+  grid-template-rows: auto auto auto; */
 }
 
+.formButton {
+  margin-top: 2em;
+  font-size: 12pt;
+}
+
+.button {
+  top: 383px;
+left: 454px;
+width: 140px;
+height: 35px;
+  background: #FFD747;
+  border: none;
+  border-radius: 10px;
+  color: white;
+   font-weight: bold;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+.hidden {
+  visibility: hidden;
+}
+
+
+
+/* --------------  Header ------------------- */
+
 .navBar{
-  margin-top: 2.5em;
+  margin-top: 1.5em;
+  margin-left: 3vw;
+  margin-right: 4vw;
 }
 .topNav{
   margin-left: 7.5vw;
@@ -47,7 +99,7 @@ body {
   text-align: left;
   font-family: 'Maven Pro';
   font-weight: 500;
-  font-size: 1vw;
+  font-size: 12px;
   letter-spacing: 0;
   color: #707070;
   opacity: 1;
@@ -78,10 +130,303 @@ body {
   max-height: 50px;
 }
 
+/*///////////// MainPage //////////////////////////////////////*/ 
 
-////////////////// Projects ///////////////////////////////////
+.mainPage {
+  align-content: center;
+  width: 100%;
+  
+}
+.carousel {
+  max-width: 85vw;
+  height: 70vh;
+  margin-top: 5vh;
+}
+.imgCarousel{
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.filterDiv {
+  width: 40vw;
+  height: 50vh;
+  position: absolute;
+}
+.overFlowHidden {
+width: 100%;
+height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.filterDiv img {
+  width: 100%;
+  position: absolute;
+  top: -9999px;
+  bottom: -9999px;
+  left: -9999px;
+  right: -9999px;
+  margin: auto;
+  z-index: 1;
+}
+.filterDiv h2 {
+  z-index: 2;
+  font-family: 'Alegreya Sans';
+  font-style: italic;
+  font-weight: bold;
+  font-size: 40px;
+  color: #707070;
+  text-shadow: 2px 2px 0px white;
+}
+
+
+.filter1{
+  position: absolute;
+  margin-left: 10vw;
+  margin-top: 5vh;
+}
+.filter1 h2 {
+  position: absolute;
+  right: -10%;
+  top: 10%;
+}
+.filter2{
+  position: absolute;
+  margin-left: 50vw;
+  margin-top: 60vh;
+}
+.filter2 h2 {
+  position: absolute;
+  left: -10%;
+  top: 20%;
+}
+.filter3{
+  position: absolute;
+  margin-left: 5vw;
+  margin-top: 100vh;
+}
+.filter3 h2 {
+  position: absolute;
+  right: -10%;
+  top: 50%;
+}
+
+/*///////////////// Projects //////////////////////////////////*/
 
 .projectsIndexPic img {
-  width: 50px;
+  /* width: 50px; */
   /* background-color: red; */
+}
+
+
+
+/*------------------ ADMIN -----------------*/
+.adminPage {
+  background-color: white;
+  /* background-color: lightcoral; */
+  border-radius: 15px;
+  width: 60vw;
+  min-height: 80vh;
+  margin: 5vh 5vw 5vh 20vw;
+  text-align: left;
+  padding: 5vh 5vw;
+}
+
+.loggedAdmin {
+  height: 100%;
+}
+
+/*////////// Login//////////*/
+
+.loginDiv {
+  /* background-color: yellow; */
+  padding: 20px 50px 10px 50px;
+  text-align: left;
+  position: relative;
+  height: 200px;
+  width: 300px;
+  border-radius: 20px;
+  top: 30vh;
+  left: 5vw;
+  align-content: space-around;
+  font-family: 'Maven Pro';
+  color: #707070;
+}
+
+.loginForm {
+  width: 100%;
+  /* background-color: turquoise; */
+  text-align: right;
+}
+
+.loginForm input{
+  margin: 5px 0;
+  padding: 2px;
+  width: 98%;
+  height: 1.5rem;
+  border: 1px solid #a0a0a0;
+  border-radius: 5px; 
+}
+
+:focus {
+  outline: none;
+}
+
+
+
+/*/////// Menu ///////*/
+
+.navBarAdmin {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 5vw;
+  /* background-color: #111; */
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.navBarAdmin a {
+  text-decoration: none;
+}
+.navBarAdmin h1 {
+  font-size: 25px;
+  font-family: 'Maven Pro';
+  color: #707070;
+  letter-spacing: 1;
+  margin-bottom: 0.2em;
+}
+
+.logout{
+  margin-top: 0;
+  color: #FFD747
+}
+.logout:hover{
+  text-decoration: underline;
+}
+.navBarAdmin .navList {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  margin-top: 2em;
+}
+.navList li {
+  margin-bottom: 1em;
+}
+.navList li a {
+  text-decoration: none;
+  color: #707070;
+}
+
+/*//////// New Project /////// */
+.newProject{
+  display: grid;
+ 
+  grid-template-columns: 15% auto 15%;
+  grid-template-rows: 10% auto;
+}
+.newProject h2,h3{
+  text-align: left;
+  font-family: 'Maven Pro';
+  font-weight: bold;
+  /* font-size: 40px; */
+  color: #8D8D8D;
+  grid-column: 2 / 3;
+  margin-top: 0;
+  margin-bottom: 0.2em;
+  padding-bottom: 0;
+}
+
+.newProjForm {
+  grid-column: 2 / 3;
+ 
+}
+.newProjFormInput {
+  width: 100%;
+  height: 1.5rem;
+  border: 1px solid #8D8D8D;
+  border-radius: 5px;
+}
+
+.newProjFormDesc {
+    width: 93%;
+    height: 150px;
+    padding: 12px 20px;
+    border: 1px solid #8D8D8D;
+    border-radius: 5px;
+    resize: none;
+    font-size: 10pt;
+}
+
+.newProjInput::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.newProjInput::before {
+  content: 'Upload photo';
+  display: inline-block;
+  color: #999;
+  border-radius: 5px;
+  padding: 8px 25px;
+  font-weight: 500;
+  font-size: 10pt;
+  border: 2px solid #FFD747;
+  margin-right: 10px;
+}
+.newProjInput:hover::before {
+  border-color: black;
+}
+.newProjForm select {
+  background-color: white;
+  width: 100%;
+  height: 1.5rem;
+  border: 1px solid #8D8D8D;
+  border-radius: 5px;
+  font-family: 'Maven Pro';
+}
+
+
+/*//// Page Admin /////*/
+
+.adminPage input{
+  margin-bottom: 10px;
+}
+
+.sameLineFormInput {
+  width: 90%;
+  height: 1.5rem;
+  border: 1px solid #8D8D8D;
+  border-radius: 5px;
+  margin: 0;
+
+}
+.floatLeft {
+  width: 50%;
+  float: left;
+  justify-content: center;
+  
+}
+.floatLeft h3 {
+  margin: 0;
+}
+.alignRight {
+  position: relative;
+  right: -10px;
+}
+
+/*////// Show Projects ////*/
+
+.projAdminDiv {
+  /* background-color: lightseagreen; */
+  border: 1px solid #8D8D8D;
+  width: 100%;
+  height: 5em;
+  float: left;
+}
+.projAdminDiv img {
+  width: 100px;
+  object-fit: cover;
+}
+.projAdminDiv p {
+z-index: 10;
 }

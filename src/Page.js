@@ -61,7 +61,7 @@ class Page extends Component {
 
      renderAdmin = () => {
           if(this.props.user){
-            return <div>
+            return <div className="loggedAdmin">
                     <Route path="/admin" component={() => <Admin logOut={this.logOut}/>} />
                     <Route path="/admin/new" component={ NewProject } />
                     <Route path="/admin/projects" component={ ProjectsAdmin } />
@@ -77,15 +77,19 @@ class Page extends Component {
         const {aboutMe,projects} = this.props ? this.props : [];
 
         return ( 
-            <Styles>
+            // <Styles>
+                <div className="pageDiv">
                 <div>
-                {this.renderAdmin()}
-                <Route exact path="/" component={() =>  <Welcome /> }/>
-                <Route exact path={`/${aboutMe}`} component={() =>  <AboutMe /> }/>
-                <Route exact path={`/${projects}`} component={() =>  <Projects /> }/>
-                <Route exact path={`/${projects}/:id`} component={props => (  <ProjectShow {...props} /> )}/>
+                    {this.renderAdmin()}
                 </div>
-            </Styles>
+                <div className="publicPage">
+                    <Route exact path="/" component={() =>  <Welcome /> }/>
+                    <Route exact path={`/${aboutMe}`} component={() =>  <AboutMe /> }/>
+                    <Route exact path={`/${projects}`} component={() =>  <Projects /> }/>
+                    <Route exact path={`/${projects}/:id`} component={props => (  <ProjectShow {...props} /> )}/>
+                </div>
+                </div>
+            // </Styles>
          );
     }
 }

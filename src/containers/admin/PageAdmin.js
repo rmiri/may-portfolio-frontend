@@ -43,25 +43,29 @@ class PageAdmin extends Component {
 
     render() { 
         return ( 
-          <div>
-              <h1>Page Content</h1>
-              <form onSubmit={this.handleSubmit}>
-                <label>Website Name</label>
-                <input type="text" name="website_name" value={this.state.website_name} onChange={this.handleChange} />
-                <label>Nav 1</label>
-                <input type="text" name="nav_link_1" value={this.state.nav_link_1} onChange={this.handleChange}></input>
-                <label>Nav 2</label>
-                <input type="text" name="nav_link_2" value={this.state.nav_link_2} onChange={this.handleChange}></input>
-                <label>Products type:</label>
-                <input type="text" name="filter_1" value={this.state.filter_1} onChange={this.handleChange}></input>
-                <input type="text" name="filter_2" value={this.state.filter_2} onChange={this.handleChange}></input>
-                <input type="text" name="filter_3" value={this.state.filter_3} onChange={this.handleChange}></input>
-                <label>Footer link:</label>
-                <input type="text" name="footer_link_1" value={this.state.footer_link_1} onChange={this.handleChange}placeholder="Email"></input>
-                <input type="text" name="footer_link_2" value={this.state.footer_link_2} onChange={this.handleChange} placeholder="Linkedin"></input>
-                <input type="text" name="footer_link_3" value={this.state.footer_link_3} onChange={this.handleChange} placeholder="Dribble"></input>
+          <div className="adminPage newProject">
+              <h2>Page Content</h2>
+              <form onSubmit={this.handleSubmit} className="newProjForm">
+                  <span></span>
+                <label> <h3>Website Name</h3></label>
+                <input className="newProjFormInput" type="text" name="website_name" value={this.state.website_name} onChange={this.handleChange} />
+            <span className="floatLeft">  
+                <label> <h3>Nav 1</h3></label>
+                <input className="sameLineFormInput" type="text" name="nav_link_1" value={this.state.nav_link_1} onChange={this.handleChange}></input>
+            </span><span className="floatLeft">
+                <label> <h3 className="alignRight">Nav 2</h3></label>
+                <input className="sameLineFormInput alignRight" type="text" name="nav_link_2" value={this.state.nav_link_2} onChange={this.handleChange}></input>
+            </span> 
+                <label> <h3>Products type:</h3></label>
+                <input className="newProjFormInput" type="text" name="filter_1" value={this.state.filter_1} onChange={this.handleChange}></input>
+                <input className="newProjFormInput" type="text" name="filter_2" value={this.state.filter_2} onChange={this.handleChange}></input>
+                <input className="newProjFormInput" type="text" name="filter_3" value={this.state.filter_3} onChange={this.handleChange}></input>
+                <label> <h3>Footer link:</h3></label>
+                <input className="newProjFormInput" type="text" name="footer_link_1" value={this.state.footer_link_1} onChange={this.handleChange}placeholder="Email"></input>
+                <input className="newProjFormInput" type="text" name="footer_link_2" value={this.state.footer_link_2} onChange={this.handleChange} placeholder="Linkedin"></input>
+                <input className="newProjFormInput" type="text" name="footer_link_3" value={this.state.footer_link_3} onChange={this.handleChange} placeholder="Dribble"></input>
              
-                <button type="submit" value="Submit">Submit</button>
+                <button type="submit" value="Submit" className="button formButton">Submit</button>
               </form>
           </div>
          );

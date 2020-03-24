@@ -39,7 +39,8 @@ const postPicture = (url,obj) => {
         body: obj 
     }
     return fetch(url,configObject)
-            .then(resp => resp.json())
+    .then(console.log)
+            // .then(resp => resp.json())
 }
 const patch = (url,obj) => {
     const configObject = {
