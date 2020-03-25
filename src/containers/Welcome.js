@@ -38,7 +38,7 @@ class Welcome extends Component {
 
     filterImage = (filter) => {
      const proj = this.props.projects.find( proj => proj.project.category === filter) ? this.props.projects.find( proj => proj.project.category === filter) : this.props.projects[0]
-     return proj && <Link to={`/${this.props.page.nav_link_2}`}><img src={proj.pictures} alt={`link to  ${filter}`}></img> </Link>
+     return proj && <Link to={`/${this.props.page.nav_link_2}#${filter}`}><img src={proj.pictures} alt={`link to  ${filter}`}></img> </Link>
     }
     
     render() { 

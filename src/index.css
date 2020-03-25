@@ -208,12 +208,127 @@ height: 100%;
 }
 
 /*///////////////// Projects //////////////////////////////////*/
-
-.projectsIndexPic img {
-  /* width: 50px; */
-  /* background-color: red; */
+.projPage  {
+  width: 87vw;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  grid-template-rows: auto auto auto ;
+}
+.filterProjDiv {
+  grid-template-rows: 20px auto ;
+  background-color: white;
+  overflow: hidden;
+}
+.filter1Div {
+  grid-row: 1/2;
+}
+.filter2Div {
+  grid-row: 2/3;
+}
+.filter3Div {
+  grid-row: 3/4;
+}
+.filtersName {
+  grid-row: 1/2;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+.filtersNameTitle {
+  text-decoration: none;
+  margin-right: 10px;
+  margin-left: 10px;
+  z-index: 2;
+  font-family: 'Alegreya Sans';
+  font-weight: bold;
+  font-size: 40px;
+  color: #707070;
+}
+.h1ProjectFilter{
+  color: #FFD747;
+}
+.filterProjects {
+  grid-row: 2/3;
+  overflow: hidden;
+  height: 100%;
+}
+.projectsIndexPic{
+  float: left;
+  width: 49%;
+  margin-top: 10px;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+}
+.indexPicContainer {
+  width: 100%;
+  height: 50vh;
+  overflow: hidden;
+}
+.indexPic {
+  /* width: 100%; */
+  height: 100%;
+}
+.projectsIndexPic h3{
+  text-decoration: none;
+  font-family: 'Maven Pro';
+  color: black;
+  margin-top: 0;
+  font-size: medium;
+}
+.projectsIndexPic h4 {
+  text-decoration: none;
+  font-family: 'Maven Pro';
+  color: #707070;
+  margin-top: 0;
+  font-size: small;
 }
 
+/*/////////////// Project Show //////////////*/
+
+.projectShow{
+  margin-top: 2vh;
+  margin-left: 18vw;
+  margin-right: 5vw;
+  
+  background-color: white;
+}
+.projectShow h3 {
+  font-family: 'Alegreya Sans';
+  font-style: italic;
+  font-style: bold;
+  font-size: 2em;
+}
+.projectShow p {
+  color: #707070;
+  padding-right: 5vw;
+}
+.projectShow img {
+  max-width: 100%;
+}
+/* //////////////////// ABoutMe ////////////////////*/
+.hello {
+ font-family: 'Alegreya Sans';
+ font-size: 50px;
+ font-style: italic;
+ color: #707070;
+}
+.aboutMeContent {
+  /* background-color: white; */
+  margin-left: 10vw;
+  min-height: 20vw;
+}
+.aboutMeContent img {
+  max-width: 300px;
+}
+.aboutMeContent p {
+  color: #707070;
+  margin-left: 50px;
+}
+.aboutMeText {
+  padding-top: 35px;
+  padding-right: 35px;
+  background-color: white;
+}
 
 
 /*------------------ ADMIN -----------------*/
@@ -370,10 +485,9 @@ height: 100%;
   font-size: 10pt;
   border: 2px solid #FFD747;
   margin-right: 10px;
+  margin-top: 31px;
 }
-.newProjInput:hover::before {
-  border-color: black;
-}
+
 .newProjForm select {
   background-color: white;
   width: 100%;

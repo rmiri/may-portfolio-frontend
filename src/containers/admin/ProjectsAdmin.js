@@ -9,6 +9,7 @@ class ProjectsAdmin extends Component {
                 <div className="picTileProj">
                     <img src={proj.pictures}/>
                     <p>{proj.project.title}</p>
+                    <p>{proj.project.category}</p>
                 </div>
                 <a onClick={()=> this.deleteProject(proj.project.id)}>Delete</a>
             </div>)

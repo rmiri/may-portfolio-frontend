@@ -14,13 +14,16 @@ class Project extends Component {
         this.getProject()
     }
     render(){
-        const {project,pictures} = this.props.project
-        console.log(this.props.project)
+        const {project,pictures } = this.props.project && this.props.project
         return(
-            <div>
+            <div >
                 <Header />
-                <h3>{project ? project.title : "nothing"}</h3>
-                <img src={pictures} />
+                <div className="projectShow">
+                    <h3>{project.title}</h3>
+                    <p>{project.index_description}</p>
+                    <p>{project.description}</p>
+                    <img src={pictures} alt="project"/>
+                </div>
             </div>
         )
     }

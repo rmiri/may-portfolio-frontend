@@ -27,11 +27,9 @@ class NewProject extends Component {
         form.append('description', this.state.description)
         form.append('category', this.state.category)
         form.append('user_id', this.state.user_id)
-        form.append('pictures', this.state.pictures)
-        form.append('photos[]', this.state.photos);
-      console.log(form.photos)
+
         API.postProject(form)
-        // .then(resp => window.alert(resp.message))
+        .then(resp => window.alert(resp.message))
       }
 
       filehandled = event => {
@@ -64,8 +62,8 @@ class NewProject extends Component {
                 </select>
 
                 <span className="floatLeft">  
-                  <input className="hidden" id="photo" multiple={false} type="file" onChange={this.filehandled}/>
-                  <label for="photo" className="newProjInput"></label>
+                  <input name="pictures" multiple={false} type="file" onChange={this.handleChange} className="newProjInput"/>
+                  {/* <label for="photo" className="newProjInput"></label> */}
                 
                   {/* <label>Photos</label>
                   <input multiple={true} type="file" name="photos" onChange={this.filehandled}/> */}

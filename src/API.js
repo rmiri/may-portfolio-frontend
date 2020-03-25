@@ -4,7 +4,7 @@ const pagesUrl = baseUrl + '/pages';
 const projectsUrl = baseUrl + '/projects';
 const validateURL = baseUrl + '/validate';
 const createURL = baseUrl + '/create';
-const aboutMeUrl = baseUrl + '/about_mes/'
+const aboutMeUrl = baseUrl + '/about_mes';
 
 
 
@@ -39,8 +39,7 @@ const postPicture = (url,obj) => {
         body: obj 
     }
     return fetch(url,configObject)
-    .then(console.log)
-            // .then(resp => resp.json())
+        .then(resp => resp.json())
 }
 const patch = (url,obj) => {
     const configObject = {
@@ -86,7 +85,7 @@ const editPage = (id,obj) => (
 )
 
 const editABoutMe = (id,obj) => (
-    patch(aboutMeUrl+id,obj)
+    patch(aboutMeUrl+"/"+id,obj)
 )
 
 const postProject = (body) => (

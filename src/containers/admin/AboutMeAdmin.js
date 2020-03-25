@@ -9,7 +9,8 @@ class AboutMeAdmin extends Component {
         profile_photo: this.props.aboutme.profile_photo,
         about_me: this.props.aboutme.about_me,
         phone: this.props.aboutme.phone,
-        email: this.props.aboutme.email
+        email: this.props.aboutme.email,
+        id: this.props.aboutme.id
     }
 
     handleChange = (e) => {
@@ -22,15 +23,18 @@ class AboutMeAdmin extends Component {
         e.preventDefault();
         const form = new FormData(e.target)
         form.append('name', this.state.name)
-        API.editABoutMe(this.props.id,form)
-        .then(console.log)
+        form.append('profile_photo', this.state.profile_photo)
+        form.append('about_me', this.state.about_me)
+        form.append('phone', this.state.phone)
+        form.append('email', this.state.email)
+        form.append('id', this.state.id)
+        // API.editABoutMe(this.state.id,form)
+        // .then(console.log)
+        console.log(form,this.state.id)
     }
 
-//     about_me(pin):null
-// phone(pin):null
-// email(pin):null
-
     render() { 
+        console.log(this.props.aboutme.name)
         return ( 
           <div className="adminPage newProject">
               <h2>About Me Page</h2>
