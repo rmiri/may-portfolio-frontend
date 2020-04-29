@@ -14,15 +14,16 @@ class Project extends Component {
         this.getProject()
     }
     render(){
-        const {project,pictures } = this.props.project && this.props.project
+        const {project,pictures,photos } = this.props.project && this.props.project
         return(
             <div >
                 <Header />
                 <div className="projectShow">
-                    <h3>{project.title}</h3>
-                    <p>{project.index_description}</p>
-                    <p>{project.description}</p>
+                    <h3>{project ? project.title : "hellu"}</h3>
+                    <p>{project ? project.index_description : "hellu"}</p>
+                    <p>{project ? project.description : "hellu"}</p>
                     <img src={pictures} alt="project"/>
+                    {photos.map( p => <img src={p}/>)}
                 </div>
             </div>
         )

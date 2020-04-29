@@ -11,7 +11,9 @@ const initialState = {
     project: {
         project:{
             title: "title"},
-        pictures:"#"},
+        pictures:"#",
+        photos: ["#"]
+        },
     user: null
 }
 

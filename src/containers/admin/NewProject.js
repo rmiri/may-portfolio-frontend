@@ -18,15 +18,29 @@ class NewProject extends Component {
 			[e.target.name]: e.target.value
 		});
     };
+    photosHandleChange = (e) => {
+      this.setState({
+        photos: [... this.state.photos, ...e.target.value]
+      });
+      };
 
     handleSubmit = (e) => {
         e.preventDefault();
+
+        let photos = e.target.photos;
+
         const form = new FormData(e.target)
-        form.append('title', this.state.title)
-        form.append('index_description', this.state.index_description)
-        form.append('description', this.state.description)
-        form.append('category', this.state.category)
+       
+        // form.append('title', this.state.title)
+        // form.append('index_description', this.state.index_description)
+        // form.append('description', this.state.description)
+        // form.append('category', this.state.category)
         form.append('user_id', this.state.user_id)
+
+        for (let i = 0; i < photos.length; i++) {
+            form.append(`photos[${i}]`, photos[i])
+        }
+        
 
         API.postProject(form)
         .then(resp => window.alert(resp.message))
@@ -39,6 +53,7 @@ class NewProject extends Component {
       }
 
     render() {
+      console.log(this.state.photos)
         return ( 
           <div className="adminPage newProject">
               <h2>NEW PROJECT</h2>
@@ -65,8 +80,8 @@ class NewProject extends Component {
                   <input name="pictures" multiple={false} type="file" onChange={this.handleChange} className="newProjInput"/>
                   {/* <label for="photo" className="newProjInput"></label> */}
                 
-                  {/* <label>Photos</label>
-                  <input multiple={true} type="file" name="photos" onChange={this.filehandled}/> */}
+                  <label>Photos</label>
+                  <input name="photos" multiple={true} type="file"  onChange={this.handleChange} className="newProjInput"/>
                 </span><span className="floatLeft">
                   <button type="submit" value="Submit" className="button formButton">Submit</button>
                   </span>

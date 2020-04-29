@@ -35,6 +35,8 @@ const postPicture = (url,obj) => {
     const configObject = {
         method: "POST",
         headers: {
+            "Authorization": localStorage.getItem("token"),
+            "Accept": "application/json"
         },
         body: obj 
     }

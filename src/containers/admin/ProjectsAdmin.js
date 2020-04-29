@@ -11,6 +11,7 @@ class ProjectsAdmin extends Component {
                     <p>{proj.project.title}</p>
                     <p>{proj.project.category}</p>
                 </div>
+                <a onClick={console.log("edit not done")}>Add new photo</a>
                 <a onClick={()=> this.deleteProject(proj.project.id)}>Delete</a>
             </div>)
     }
