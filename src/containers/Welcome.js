@@ -82,6 +82,7 @@ class Welcome extends Component {
                         </div>
                     </div>
                     </div>
+                    <a href="/admin">admin</a>
                 </div>
             // </Styles>
           );
