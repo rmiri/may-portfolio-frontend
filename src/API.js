@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:3000';
+const baseUrl = 'https://maymiriuk.herokuapp.com';
 const loginUrl = baseUrl + '/login';
 const pagesUrl = baseUrl + '/pages';
 const projectsUrl = baseUrl + '/projects';
